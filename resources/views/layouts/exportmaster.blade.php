@@ -36,11 +36,20 @@
 	<script src="{{ URL::to('js/app.js') }}" defer></script>
 </head>
 <body>
+<div class="header">
+	</div>
 	<!-- Main Wrapper -->
 	<div class="main-wrapper">
 		@yield('content')
 		<!-- /Page Wrapper -->
 	</div>
+@include('sidebar.sidebar')
+	
 	<!-- /Main Wrapper -->
 </body>
+<style>
+	.sidebar{
+		
+	}
+</style>
 </html>

@@ -17,7 +17,7 @@ class EmployeeController extends Controller
     {
         $users = DB::table('users')
                     ->join('employees', 'users.user_id', '=', 'employees.employee_id')
-                    ->select('users.*', 'employees.birth_date', 'employees.gender', 'employees.company')
+                    ->select('users.*', 'employees.birth_date', 'employees.gender', )
                     ->get(); 
         $userList = DB::table('users')->get();
         $permission_lists = DB::table('permission_lists')->get();
@@ -28,7 +28,7 @@ class EmployeeController extends Controller
     {
         $users = DB::table('users')
                     ->join('employees', 'users.user_id', '=', 'employees.employee_id')
-                    ->select('users.*', 'employees.birth_date', 'employees.gender', 'employees.company')
+                    ->select('users.*', 'employees.birth_date', 'employees.gender')
                     ->get();
         $userList = DB::table('users')->get();
         $permission_lists = DB::table('permission_lists')->get();
@@ -44,7 +44,7 @@ class EmployeeController extends Controller
             'birthDate'   => 'required|string|max:255',
             'gender'      => 'required|string|max:255',
             'employee_id' => 'required|string|max:255',
-            'company'     => 'required|string|max:255',
+            
         ]);
 
         DB::beginTransaction();
@@ -60,7 +60,8 @@ class EmployeeController extends Controller
                 $employee->birth_date   = $request->birthDate;
                 $employee->gender       = $request->gender;
                 $employee->employee_id  = $request->employee_id;
-                $employee->company      = $request->company;
+            
+                
                 $employee->save();
     
                 for($i=0;$i<count($request->id_count);$i++)
@@ -117,7 +118,7 @@ class EmployeeController extends Controller
                 'birth_date'=>$request->birth_date,
                 'gender'=>$request->gender,
                 'employee_id'=>$request->employee_id,
-                'company'=>$request->company,
+                
             ];
             // update table user
             $updateUser = [
@@ -358,7 +359,8 @@ class EmployeeController extends Controller
         $departments = DB::table('departments')->get();
         return view('form.departments',compact('departments'));
     }
-
+    
+    
     /** save record department */
     public function saveRecordDepartment(Request $request)
     {

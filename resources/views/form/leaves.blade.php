@@ -20,7 +20,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Leave Statistics -->
+            <!-- Leave Statistics 
             <div class="row">
                 <div class="col-md-3">
                     <div class="stats-info">
@@ -47,7 +47,7 @@
                     </div>
                 </div>
             </div>
-            <!-- /Leave Statistics -->
+            /Leave Statistics -->
 
             <!-- Search Filter -->
             <div class="row filter-row">
@@ -68,6 +68,7 @@
                         <label class="focus-label">Leave Type</label>
                     </div>
                 </div>
+                
                 <div class="col-sm-6 col-md-3 col-lg-3 col-xl-2 col-12"> 
                     <div class="form-group form-focus select-focus">
                         <select class="select floating"> 

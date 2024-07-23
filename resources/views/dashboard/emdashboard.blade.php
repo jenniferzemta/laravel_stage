@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('content')
-    <!-- Page Wrapper -->
+
     <div class="page-wrapper">
-        <!-- Page Content -->
+    
         <div class="content container-fluid">
             <div class="row">
                 <div class="col-md-12">
@@ -222,8 +222,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- /Page Content -->
+        </div
     </div>
-    <!-- /Page Wrapper -->  
+    
 @endsection

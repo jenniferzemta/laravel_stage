@@ -12,12 +12,12 @@ class CreateUserTypesTable extends Migration
      * @return void
      */
     public function up()
-    {
+    { if(!Schema::hasTable('users_types')){
         Schema::create('user_types', function (Blueprint $table) {
             $table->id();
             $table->string('type_name')->nullable();
             $table->timestamps();
-        });
+        });}
 
         DB::table('user_types')->insert([
             ['type_name' => 'Active'],

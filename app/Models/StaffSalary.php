@@ -13,16 +13,8 @@ class StaffSalary extends Model
         'user_id',
         'salary',
         'basic',
-        'da',
-        'hra',
-        'conveyance',
         'allowance',
-        'medical_allowance',
-        'tds',
-        'esi',
-        'pf',
-        'leave',
-        'prof_tax',
-        'labour_welfare',
+        
+        
     ];
 }

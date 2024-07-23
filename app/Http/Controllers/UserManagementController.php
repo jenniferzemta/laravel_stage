@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 use DB;
 use App\Models\User;
+use App\Models\Presence;
+use App\Models\Projects;
 use App\Models\Employee;
 use App\Models\Form;
 use App\Models\ProfileInformation;
@@ -15,6 +17,7 @@ use Carbon\Carbon;
 use Session;
 use Auth;
 use Hash;
+use DateTime;
 
 class UserManagementController extends Controller
 {
@@ -204,12 +207,12 @@ class UserManagementController extends Controller
     }
    
     // save new user
-    public function addNewUserSave(Request $request)
+   public function addNewUserSave(Request $request)
     {
         $request->validate([
             'name'      => 'required|string|max:255',
             'email'     => 'required|string|email|max:255|unique:users',
-            'phone'     => 'required|min:11|numeric',
+            'phone'     => 'required|min:5|numeric',
             'role_name' => 'required|string|max:255',
             'position'  => 'required|string|max:255',
             'department'=> 'required|string|max:255',
@@ -217,6 +220,7 @@ class UserManagementController extends Controller
             'image'     => 'required|image',
             'password'  => 'required|string|min:8|confirmed',
             'password_confirmation' => 'required',
+            'salaryb'     => 'required|min:0|numeric',
         ]);
         DB::beginTransaction();
         try{
@@ -237,6 +241,7 @@ class UserManagementController extends Controller
             $user->status       = $request->status;
             $user->avatar       = $image;
             $user->password     = Hash::make($request->password);
+            $user->salaryb     =  $request->salaryb;
             $user->save();
             DB::commit();
             Toastr::success('Create new account successfully :)','Success');
@@ -261,6 +266,8 @@ class UserManagementController extends Controller
             $phone        = $request->phone;
             $department   = $request->department;
             $status       = $request->status;
+            $salaryb      = $request->salaryb;
+        
 
             $dt       = Carbon::now();
             $todayDate = $dt->toDayDateTimeString();
@@ -295,6 +302,7 @@ class UserManagementController extends Controller
                 'department'   => $department,
                 'status'       => $status,
                 'avatar'       => $image_name,
+                'salaryb'      => $salaryb,
             ];
 
             $activityLog = [
@@ -310,12 +318,12 @@ class UserManagementController extends Controller
             DB::table('user_activity_logs')->insert($activityLog);
             User::where('user_id',$request->user_id)->update($update);
             DB::commit();
-            Toastr::success('User updated successfully :)','Success');
+            Toastr::success('Staff updated successfully :)','Success');
             return redirect()->route('userManagement');
 
         }catch(\Exception $e){
             DB::rollback();
-            Toastr::error('User update fail :)','Error');
+            Toastr::error('Staff update fail :)','Error');
             return redirect()->back();
         }
     }
@@ -386,13 +394,6 @@ class UserManagementController extends Controller
         Toastr::success('User change successfully :)','Success');
         return redirect()->intended('home');
     }
+
+
 }
-
-
-
-
-
-
-
-
-

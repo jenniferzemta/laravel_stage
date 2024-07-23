@@ -27,7 +27,7 @@
             </div>
 			<!-- /Page Header -->
 
-            <!-- Search Filter -->
+            <!-- Search Filter 
             <form action="{{ route('all/employee/search') }}" method="POST">
                 @csrf
                 <div class="row filter-row">
@@ -53,7 +53,7 @@
                         <button type="sumit" class="btn btn-success btn-block"> Search </button>  
                     </div>
                 </div>
-            </form>
+            </form>-->
             <!-- Search Filter -->
             {{-- message --}}
             {!! Toastr::message() !!}
@@ -135,19 +135,12 @@
                                         <input type="text" class="form-control" id="employee_id" name="employee_id" placeholder="Auto id employee" readonly>
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label class="col-form-label">Company</label>
-                                        <select class="select select2s-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" id="company" name="company">
-                                            <option value="">-- Select --</option>
-                                            @foreach ($userList as $key=>$user )
-                                                <option value="{{ $user->name }}">{{ $user->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
+                             
+                        
+                                
+ </div>
                             </div>
-                            <div class="table-responsive m-t-15">
+                           <!--<div class="table-responsive m-t-15">
                                 <table class="table table-striped custom-table">
                                     <thead>
                                         <tr>
@@ -198,7 +191,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-                            </div>
+                            </div>-->
                             <div class="submit-section">
                                 <button class="btn btn-primary submit-btn">Submit</button>
                             </div>

@@ -1,3 +1,4 @@
+
 @extends('layouts.master')
 @section('content')
   
@@ -125,7 +126,7 @@
                                         <select class="select" id="name" name="name">
                                             <option value="">-- Select --</option>
                                             @foreach ($userList as $key=>$user )
-                                                <option value="{{ $user->name }}" data-employee_id={{ $user->user_id }} data-email={{ $user->email }}>{{ $user->name }}</option>
+                                                <option value="{{ $user->name }}" data-employee_id={{ $user->user_id}} data-email={{ $user->email }}>{{ $user->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -160,7 +161,7 @@
                                         <input type="text" class="form-control" id="employee_id" name="employee_id" placeholder="Auto id employee" readonly>
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
+                             <!--   <div class="col-sm-6">
                                     <div class="form-group">
                                         <label class="col-form-label">Company</label>
                                         <select class="select" id="company" name="company">
@@ -170,7 +171,7 @@
                                         </select>
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
                             <div class="table-responsive m-t-15">
                                 <table class="table table-striped custom-table">
                                     <thead>

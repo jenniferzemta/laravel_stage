@@ -526,7 +526,7 @@ table.dataTable thead > tr > td.sorting {
 .btn-purple:hover,
 .btn-purple:focus {
 	background-color: #482fe9;
-	border: 1px solid #482fe9;
+	border: 1px solidr #482fe9;
 }
 .btn-primary {
 	background-color: #f43b48;
@@ -1326,11 +1326,12 @@ table.dataTable thead > tr > td.sorting {
 -----------------------*/
 
 .header {
-	background: #f43b48;
+	/*background: #f43b48;
 	background: -moz-linear-gradient(left, #f43b48 0%, #453a94 100%);
 	background: -webkit-linear-gradient(left, #f43b48 0%, #453a94 100%);
 	background: -ms-linear-gradient(left, #f43b48 0%, #453a94 100%);
-	background: linear-gradient(to right, #f43b48 0%, #453a94 100%);
+	background: linear-gradient(to right, #f43b48 0%, #453a94 100%);*/
+	background: #009efb;
 	border-bottom: 1px solid transparent;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
 	height: 60px;
@@ -1543,7 +1544,7 @@ table.dataTable thead > tr > td.sorting {
 .menu-title {
     color: #ebecf1;
     display: flex;
-    font-size: 14px;
+    font-size: 20px;
     opacity: 1;
     padding: 5px 15px;
     white-space: nowrap;
@@ -1553,7 +1554,7 @@ table.dataTable thead > tr > td.sorting {
 	line-height: 40px;
 }
 .sidebar-menu li.menu-title a {
-    color: #f43b48;
+    color: #fff;
     display: inline-block;
     margin-left: auto;
     padding: 0;
@@ -1562,14 +1563,22 @@ table.dataTable thead > tr > td.sorting {
     color: #fff;
     display: block;
     float: none;
-    font-size: 15px;
+    font-size: 30px;
     margin-bottom: 15px;
     padding: 10px 15px;
 }
 .sidebar-menu ul ul a.active {
-	color: #f43b48;
-	text-decoration: underline;
+	color:#009efb;
+	text-decoration:none;
+    padding: 10px 30px;
+
+
 }
+.fa-hand-o-right {
+	font-family: FontAwesome; /* Assuming Font Awesome is loaded */
+	content: "\f0ce"; /* Code for table icon in Font Awesome */
+	margin-right: 10px; /* Add a margin to the right */
+  }
 .mobile-user-menu {
     color: #fff;
     display: none;
@@ -1600,7 +1609,7 @@ table.dataTable thead > tr > td.sorting {
 }
 .profile-rightbar {
 	display: none !important;
-	color: #f43b48;
+	color:#fff5ec;
 	font-size: 26px;
 	margin-left: 15px;
 }
@@ -1668,16 +1677,16 @@ table.dataTable thead > tr > td.sorting {
 	-webkit-transform: rotate(90deg);
 	-o-transform: rotate(90deg);
 	transform: rotate(90deg);
-}
+}/*
 .noti-dot:before {
 	content: '';
 	width: 5px;
 	height: 5px;
-	border: 5px solid #f43b48;
+	border: 5px solid #fff;
 	-webkit-border-radius: 30px;
 	-moz-border-radius: 30px;
 	border-radius: 30px;
-	background-color: #f43b48;
+	background-color: #009efb;
 	z-index: 10;
 	position: absolute;
 	right: 37px;
@@ -1685,7 +1694,7 @@ table.dataTable thead > tr > td.sorting {
 }
 .noti-dot:after {
 	content: '';
-	border: 4px solid #f43b48;
+	border: 4px solid #fff;
 	background: transparent;
 	-webkit-border-radius: 60px;
 	-moz-border-radius: 60px;
@@ -1703,7 +1712,7 @@ table.dataTable thead > tr > td.sorting {
 	right: 30px;
 	z-index: 1;
 	opacity: 0;
-}
+}*/
 .sidebar-menu ul ul a .menu-arrow {
 	top: 6px;
 }
@@ -1723,7 +1732,7 @@ table.dataTable thead > tr > td.sorting {
 	position: relative;
 	transition: all 0.2s ease-in-out 0s;
 }
-.sidebar-menu ul li a i {
+.sidebar-menu ul li a i span{
 	display: inline-block;
 	font-size: 24px;
 	line-height: 24px;
@@ -1752,9 +1761,11 @@ table.dataTable thead > tr > td.sorting {
 	padding-top: 60px;
 	position: relative;
 	transition: all 0.2s ease-in-out;
+	
 }
 .page-wrapper > .content {
 	padding: 30px;
+	background-color: rgb(31, 167, 251);
 }
 .page-header {
 	margin-bottom: 1.875rem;
@@ -1844,15 +1855,21 @@ table.dataTable thead > tr > td.sorting {
 .account-page {
 	align-items: center ;
 	display: flex;
+	
+	
 }
 .account-page .main-wrapper {
 	display: flex;
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
+
+	
+	
 }
 .account-content {
 	padding: 20px 0;
+	
 }
 .account-title {
     font-size: 26px;
@@ -1887,10 +1904,10 @@ table.dataTable thead > tr > td.sorting {
 }
 .account-box .account-btn {
 	background: #f43b48;
-	background: -moz-linear-gradient(left, #f43b48 0%, #453a94 100%);
-	background: -webkit-linear-gradient(left, #f43b48 0%, #453a94 100%);
-	background: -ms-linear-gradient(left, #f43b48 0%, #453a94 100%);
-	background: linear-gradient(to right, #f43b48 0%, #453a94 100%);
+	background: -moz-linear-gradient(left, #f43b48 0%, #331ddc 100%);
+	background: -webkit-linear-gradient(left, #f43b48 0%, #260ed7 100%);
+	background: -ms-linear-gradient(left, #f43b48 0%, #270cf3 100%);
+	background: linear-gradient(to right, #f43b48 0%, #2e17e2 100%);
 	border: 0;
     border-radius: 4px;
     display: block;
@@ -1925,7 +1942,7 @@ table.dataTable thead > tr > td.sorting {
     margin-bottom: 0;
 }
 .account-footer a {
-	color: #f43b48;
+	color:blue;
 }
 .account-footer a:hover {
 	color: #f43b48;

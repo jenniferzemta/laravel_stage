@@ -94,7 +94,7 @@
 				</li>
 				<!-- /Search -->
 
-				<!-- Flag -->
+				<!-- Flag 
 				<li class="nav-item dropdown has-arrow flag-nav">
 					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">
 						<img src="{{ URL::to('assets/img/flags/us.png') }}" alt="" height="20"> <span>English</span>
@@ -105,10 +105,10 @@
 						<a href="javascript:void(0);" class="dropdown-item">
 						<img src="{{ URL::to('assets/img/flags/kh.png') }}" alt="" height="16"> Khmer </a>
 					</div>
-				</li>
+				</li>-->
 				<!-- /Flag -->
 
-				<!-- Notifications -->
+				<!-- Notifications 
 				<li class="nav-item dropdown">
 					<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 						<i class="fa fa-bell-o"></i>
@@ -190,10 +190,10 @@
 						</div>
 						<div class="topnav-dropdown-footer"> <a href="activities.html">View all Notifications</a> </div>
 					</div>
-				</li>
+				</li>-->
 				<!-- /Notifications -->
 				
-				<!-- Message Notifications -->
+				<!-- Message Notifications 
 				<li class="nav-item dropdown">
 					<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 						<i class="fa fa-comment-o"></i> <span class="badge badge-pill">8</span>
@@ -294,7 +294,7 @@
 						</div>
 						<div class="topnav-dropdown-footer"> <a href="chat.html">View all Messages</a> </div>
 					</div>
-				</li>
+				</li>-->
 				<!-- /Message Notifications -->
 				<li class="nav-item dropdown has-arrow main-drop">
 					<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">

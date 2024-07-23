@@ -39,7 +39,7 @@
                                                 <small class="text-muted">{{ Session::get('position') }}</small>
                                                 <div class="staff-id">User ID : {{ Session::get('user_id') }}</div>
                                                 <div class="small doj text-muted">Date of Join : {{ Session::get('join_date') }}</div>
-                                                <div class="staff-msg"><a class="btn btn-custom" href="chat.html">Send Message</a></div>
+                                              <!--  <div class="staff-msg"><a class="btn btn-custom" href="chat.html">Send Message</a></div>-->
                                             </div>
                                         </div>
                                         <div class="col-md-7">
@@ -135,16 +135,17 @@
                 <div class="row user-tabs">
                     <div class="col-lg-12 col-md-12 col-sm-12 line-tabs">
                         <ul class="nav nav-tabs nav-tabs-bottom">
-                            <li class="nav-item"><a href="#emp_profile" data-toggle="tab" class="nav-link active">Profile</a></li>
-                            <li class="nav-item"><a href="#emp_projects" data-toggle="tab" class="nav-link">Projects</a></li>
-                            <li class="nav-item"><a href="#bank_statutory" data-toggle="tab" class="nav-link">Bank & Statutory <small class="text-danger">(Admin Only)</small></a></li>
+                           
+                        <!--<li class="nav-item"><a href="#emp_profile" data-toggle="tab" class="nav-link active">Profile</a></li>
+                            <li class="nav-item"><a href="#emp_projects" data-toggle="tab" class="nav-link">Projects</a></li>-->
+                           <li class="nav-item"><a href="#bank_statutory" data-toggle="tab" class="nav-link">Bank & Statutory <small class="text-danger">(Admin Only)</small></a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             
             <div class="tab-content">
-                <!-- Profile Info Tab -->
+                <!-- Profile Info Tab 
                 <div id="emp_profile" class="pro-overview tab-pane fade show active">
                     <div class="row">
                         <div class="col-md-6 d-flex">
@@ -410,9 +411,9 @@
                         </div>
                     </div>
                 </div>
-                <!-- /Profile Info Tab -->
+        /Profile Info Tab -->
                     
-                <!-- Projects Tab -->
+                <!-- Projects Tab 
                 <div class="tab-pane fade" id="emp_projects">
                     <div class="row">
                         <div class="col-lg-4 col-sm-6 col-md-4 col-xl-3">
@@ -668,7 +669,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- /Projects Tab -->
+                 /Projects Tab -->
                 
                 <!-- Bank Statutory Tab -->
                 <div class="tab-pane fade" id="bank_statutory">
@@ -677,24 +678,13 @@
                             <h3 class="card-title"> Basic Salary Information</h3>
                             <form>
                                 <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class="col-form-label">Salary basis <span class="text-danger">*</span></label>
-                                            <select class="select">
-                                                <option>Select salary basis type</option>
-                                                <option>Hourly</option>
-                                                <option>Daily</option>
-                                                <option>Weekly</option>
-                                                <option>Monthly</option>
-                                            </select>
-                                        </div>
-                                    </div>
+                                  
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label class="col-form-label">Salary amount <small class="text-muted">per month</small></label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text">$</span>
+                                                    <span class="input-group-text">FCFA</span>
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="Type your salary amount" value="0.00">
                                             </div>
@@ -713,166 +703,7 @@
                                     </div>
                                 </div>
                                 <hr>
-                                <h3 class="card-title"> PF Information</h3>
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class="col-form-label">PF contribution</label>
-                                            <select class="select">
-                                                <option>Select PF contribution</option>
-                                                <option>Yes</option>
-                                                <option>No</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class="col-form-label">PF No. <span class="text-danger">*</span></label>
-                                            <select class="select">
-                                                <option>Select PF contribution</option>
-                                                <option>Yes</option>
-                                                <option>No</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class="col-form-label">Employee PF rate</label>
-                                            <select class="select">
-                                                <option>Select PF contribution</option>
-                                                <option>Yes</option>
-                                                <option>No</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class="col-form-label">Additional rate <span class="text-danger">*</span></label>
-                                            <select class="select">
-                                                <option>Select additional rate</option>
-                                                <option>0%</option>
-                                                <option>1%</option>
-                                                <option>2%</option>
-                                                <option>3%</option>
-                                                <option>4%</option>
-                                                <option>5%</option>
-                                                <option>6%</option>
-                                                <option>7%</option>
-                                                <option>8%</option>
-                                                <option>9%</option>
-                                                <option>10%</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class="col-form-label">Total rate</label>
-                                            <input type="text" class="form-control" placeholder="N/A" value="11%">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class="col-form-label">Employee PF rate</label>
-                                            <select class="select">
-                                                <option>Select PF contribution</option>
-                                                <option>Yes</option>
-                                                <option>No</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class="col-form-label">Additional rate <span class="text-danger">*</span></label>
-                                            <select class="select">
-                                                <option>Select additional rate</option>
-                                                <option>0%</option>
-                                                <option>1%</option>
-                                                <option>2%</option>
-                                                <option>3%</option>
-                                                <option>4%</option>
-                                                <option>5%</option>
-                                                <option>6%</option>
-                                                <option>7%</option>
-                                                <option>8%</option>
-                                                <option>9%</option>
-                                                <option>10%</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class="col-form-label">Total rate</label>
-                                            <input type="text" class="form-control" placeholder="N/A" value="11%">
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <hr>
-                                <h3 class="card-title"> ESI Information</h3>
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class="col-form-label">ESI contribution</label>
-                                            <select class="select">
-                                                <option>Select ESI contribution</option>
-                                                <option>Yes</option>
-                                                <option>No</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class="col-form-label">ESI No. <span class="text-danger">*</span></label>
-                                            <select class="select">
-                                                <option>Select ESI contribution</option>
-                                                <option>Yes</option>
-                                                <option>No</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class="col-form-label">Employee ESI rate</label>
-                                            <select class="select">
-                                                <option>Select ESI contribution</option>
-                                                <option>Yes</option>
-                                                <option>No</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class="col-form-label">Additional rate <span class="text-danger">*</span></label>
-                                            <select class="select">
-                                                <option>Select additional rate</option>
-                                                <option>0%</option>
-                                                <option>1%</option>
-                                                <option>2%</option>
-                                                <option>3%</option>
-                                                <option>4%</option>
-                                                <option>5%</option>
-                                                <option>6%</option>
-                                                <option>7%</option>
-                                                <option>8%</option>
-                                                <option>9%</option>
-                                                <option>10%</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class="col-form-label">Total rate</label>
-                                            <input type="text" class="form-control" placeholder="N/A" value="11%">
-                                        </div>
-                                    </div>
-                                </div>
-                                
+                               
                                 <div class="submit-section">
                                     <button class="btn btn-primary submit-btn" type="submit">Save</button>
                                 </div>

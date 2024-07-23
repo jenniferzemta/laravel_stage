@@ -13,6 +13,7 @@ class CreateUserActivityLogsTable extends Migration
      */
     public function up()
     {
+        if(!Schema::hasTable('user_activity_logs')){
         Schema::create('user_activity_logs', function (Blueprint $table) {
             $table->id();
             $table->string('user_name')->nullable();
@@ -23,7 +24,7 @@ class CreateUserActivityLogsTable extends Migration
             $table->string('modify_user')->nullable();
             $table->string('date_time')->nullable();
             $table->timestamps();
-        });
+        });}
     }
 
     /**

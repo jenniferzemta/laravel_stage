@@ -44,7 +44,7 @@ class FormController extends Controller
             $phone_number = $request->phone_number;
             $position     = $request->position;
             $department   = $request->department;
-            $salary       = $request->salary;
+            $salaryb       = $request->salaryb;
 
             $update = [
 
@@ -56,7 +56,7 @@ class FormController extends Controller
                 'phone_number'  => $phone_number,
                 'position'      => $position,
                 'department'    => $department,
-                'salary'        => $salary,
+                'salaryb'        => $salaryb,
             ];
             Staff::where('id',$request->id)->update($update);
             Toastr::success('Data updated successfully :)','Success');

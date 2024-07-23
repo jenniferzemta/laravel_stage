@@ -2,14 +2,14 @@
 @extends('layouts.exportmaster')
 @section('content')
     <!-- Page Wrapper -->
-    <div class="">
+    
     <div class="page-wrapper">
         <!-- Page Content -->
         <div class="content container-fluid" id="app">
             <!-- Page Header -->
             <div class="page-header">
                 <div class="row align-items-center">
-                    <div class="col" style="margin-left: -222px;">
+                    <div class="col" >
                         <h3 class="page-title">Payslip</h3>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('form/salary/page') }}">Dashboard</a></li>
@@ -25,11 +25,11 @@
                     </div>
                 </div>
            
-            <div class="row" style="margin-left: -240px;">
+            <div class="row" >
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="payslip-title">Payslip for the month of {{ \Carbon\Carbon::now()->format('M') }}   {{ \Carbon\Carbon::now()->year }}  </h4>
+                            <h4 class="payslip-title">Facture de Paie  {{ \Carbon\Carbon::now()->format('M') }}   {{ \Carbon\Carbon::now()->year }}  </h4>
                             <div class="row">
                                 <div class="col-sm-6 m-b-20">
                                     @if(!empty($users->avatar))
@@ -68,63 +68,51 @@
                                             <tbody>
                                                 <?php
                                                     $a =  (int)$users->basic;
-                                                    $b =  (int)$users->hra;
-                                                    $c =  (int)$users->conveyance;
+                                                  
                                                     $e =  (int)$users->allowance;
-                                                    $Total_Earnings   = $a + $b + $c + $e;
+                                                    $Total_Earnings   = $a + $e;
                                                 ?>
                                                 <tr>
-                                                    <td><strong>Basic Salary</strong> <span class="float-right">${{ $users->basic }}</span></td>
+                                                    <td><strong>Basic Salary</strong> <span class="float-right">FCFA{{ $users->basic }}</span></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><strong>House Rent Allowance (H.R.A.)</strong> <span class="float-right">${{ $users->hra }}</span></td>
+                                                    <td><strong>Allowance</strong> <span class="float-right">FCFA{{ $users->allowance }}</span></td>
                                                 </tr>
+                                            
                                                 <tr>
-                                                    <td><strong>Conveyance</strong> <span class="float-right">${{ $users->conveyance }}</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>Other Allowance</strong> <span class="float-right">${{ $users->allowance }}</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>Total Earnings</strong> <span class="float-right"><strong>$ <?php echo $Total_Earnings ?></strong></span></td>
+                                                    <td><strong>Total Earnings</strong> <span class="float-right"><strong>FCFA <?php echo $Total_Earnings ?></strong></span></td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
+                               <!--<div class="col-sm-6">
                                     <div>
                                         <h4 class="m-b-10"><strong>Deductions</strong></h4>
                                         <table class="table table-bordered">
                                             <tbody>
-                                                <?php
-                                                    $a =  (int)$users->tds;
-                                                    $b =  (int)$users->prof_tax;
-                                                    $c =  (int)$users->esi;
-                                                    $e =  (int)$users->labour_welfare;
-                                                    $Total_Deductions   = $a + $b + $c + $e;
-                                                ?>
+                                              
                                                 <tr>
-                                                    <td><strong>Tax Deducted at Source (T.D.S.)</strong> <span class="float-right">${{ $users->tds }}</span></td>
+                                                    <td><strong>Tax Deducted at Source (T.D.S.)</strong> <span class="float-right"></span></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><strong>Provident Fund</strong> <span class="float-right">${{ $users->prof_tax }}</span></td>
+                                                    <td><strong>Provident Fund</strong> <span class="float-right"></span></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><strong>ESI</strong> <span class="float-right">${{ $users->esi }}</span></td>
+                                                    <td><strong>ESI</strong> <span class="float-right"></span></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><strong>Loan</strong> <span class="float-right">${{ $users->labour_welfare }}</span></td>
+                                                    <td><strong>Loan</strong> <span class="float-right"></span></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><strong>Total Deductions</strong> <span class="float-right"><strong>$<?php echo $Total_Deductions;?></strong></span></td>
+                                                    <td><strong>Total Deductions</strong> <span class="float-right"><strong></strong></span></td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div>
-                                </div>
+                                </div>-->
                                 <div class="col-sm-12" >
-                                    <p><strong>Net Salary: ${{ $users->salary }}</strong> (Fifty nine thousand six hundred and ninety eight only.)</p>
+                                    <p><strong>Salary: <?php echo $Total_Earnings ?> FCFA</strong> </p>
                                 </div>
                             </div>
                         </div>

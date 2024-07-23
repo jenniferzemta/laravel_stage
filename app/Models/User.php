@@ -31,8 +31,15 @@ class User extends Authenticatable
         'position',
         'department',
         'password',
-    ];
+        'salaryb',
 
+      
+        
+    ];
+    public function presences()
+    {
+        return $this->hasMany(Presence::class);
+    }
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -51,4 +58,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
 }

@@ -2,19 +2,19 @@
 @section('content')
     <div class="main-wrapper">
         <div class="account-content">
-            <a href="{{ route('form/job/list') }}" class="btn btn-primary apply-btn">Apply Job</a>
+          <!--  <a href="{{ route('form/job/list') }}" class="btn btn-primary apply-btn">Apply Job</a>-->
             <div class="container">
                 <!-- Account Logo -->
-                <div class="account-logo">
-                    <a href="index.html"><img src="{{ URL::to('assets/img/logo2.png') }}" alt="Soeng Souy"></a>
-                </div>
+                
+                
                 {{-- message --}}
                 {!! Toastr::message() !!}
                 <!-- /Account Logo -->
                 <div class="account-box">
                     <div class="account-wrapper">
+                    <a href="index.html"><img src="{{ URL::to('assets/img/avatar.png') }}" class="avatar"></a>
                         <h3 class="account-title">Login</h3>
-                        <p class="account-subtitle">Access to our dashboard</p>
+                    
                         <!-- Account Form -->
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
@@ -65,4 +65,21 @@
             </div>
         </div>
     </div>
+
+
+    <style>
+
+
+
+       
+
+ .avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: 100px;
+    left: calc(50% - 50px);
+}
+    </style>
 @endsection

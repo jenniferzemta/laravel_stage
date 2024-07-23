@@ -17,8 +17,8 @@ class LeavesController extends Controller
                     ->join('users', 'users.user_id', '=', 'leaves_admins.user_id')
                     ->select('leaves_admins.*', 'users.position','users.name','users.avatar')
                     ->get();
-
-        return view('form.leaves',compact('leaves'));
+                    $userList         = DB::table('users')->get();
+        return view('form.leaves',compact('leaves','userList'));
     }
     // save record
     public function saveRecord(Request $request)
@@ -112,17 +112,7 @@ class LeavesController extends Controller
     }
 
     // attendance admin
-    public function attendanceIndex()
-    {
-        return view('form.attendance');
-    }
-
-    // attendance employee
-    public function AttendanceEmployee()
-    {
-        return view('form.attendanceemployee');
-    }
-
+    
     // leaves Employee
     public function leavesEmployee()
     {
@@ -134,6 +124,7 @@ class LeavesController extends Controller
     {
         return view('form.shiftscheduling');
     }
+    
 
     // shiftList
     public function shiftList()

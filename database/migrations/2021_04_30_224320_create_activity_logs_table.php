@@ -13,6 +13,7 @@ class CreateActivityLogsTable extends Migration
      */
     public function up()
     {
+        if(!Schema::hasTable('activity_logs')){
         Schema::create('activity_logs', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
@@ -20,7 +21,7 @@ class CreateActivityLogsTable extends Migration
             $table->string('description')->nullable();
             $table->string('date_time')->nullable();
             $table->timestamps();
-        });
+        });}
     }
 
     /**

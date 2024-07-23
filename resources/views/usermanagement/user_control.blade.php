@@ -11,11 +11,11 @@
                         <h3 class="page-title">User Management</h3>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
-                            <li class="breadcrumb-item active">User</li>
+                            <li class="breadcrumb-item active">Staff</li>
                         </ul>
                     </div>
                     <div class="col-auto float-right ml-auto">
-                        <a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_user"><i class="fa fa-plus"></i> Add User</a>
+                        <a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_user"><i class="fa fa-plus"></i> Add Staff</a>
                     </div>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                     <div class="col-sm-6 col-md-3">  
                         <div class="form-group form-focus">
                             <input type="text" class="form-control floating" id="name" name="name">
-                            <label class="focus-label">User Name</label>
+                            <label class="focus-label">Staff Name</label>
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-3">  
@@ -67,10 +67,25 @@
                                     <th>Role</th>
                                     <th>Status</th>
                                     <th>Departement</th>
+                                    <th>Basic</th>
+                                   
                                     <th class="text-right">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+
+                            @if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status')}}
+    </div>
+    @endif
+
+<ul>
+    @foreach ($errors->all() as $error )
+    <li class="alert alert-danger"> {{ $error}} </li>
+    @endforeach
+</ul>     
+                         
                                 @foreach ($result as $key=>$user )
                                 <tr>
                                     <td>
@@ -137,6 +152,8 @@
                                         </div>
                                     </td>
                                     <td class="department">{{ $user->department }}</td>
+                                    <td class="salaryb">{{ $user->salaryb }}</td>
+                                  
                                     <td class="text-right">
                                         <div class="dropdown dropdown-action">
                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
@@ -162,7 +179,7 @@
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Add New User</h5>
+                        <h5 class="modal-title">Add New Staff</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -178,7 +195,7 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-6"> 
-                                    <label>Emaill Address</label>
+                                    <label>Email Address</label>
                                     <input class="form-control" type="email" id="" name="email" placeholder="Enter Email">
                                 </div>
                             </div>
@@ -248,9 +265,21 @@
                                     <input type="password" class="form-control" name="password_confirmation" placeholder="Choose Repeat Password">
                                 </div>
                             </div>
+            
+                                <div class="row"> 
+                                <div class="col-sm-6"> 
+                                    <div class="form-group">
+                                      
+                                        <label>Salary</label>
+                                        <input class="form-control" type="number" min="0" id="" name="salaryb" placeholder="Enter salary">
+                                    </div>
+                                    </div>
+                                    
+                            </div>
                             <div class="submit-section">
                                 <button type="submit" class="btn btn-primary submit-btn">Submit</button>
                             </div>
+                        
                         </form>
                     </div>
                 </div>
@@ -336,6 +365,15 @@
                                 </div>
                             </div>
                             <br>
+                           <div class="row"> 
+                                <div class="col-sm-6"> 
+                                    <div class="form-group">
+                                    <label>Salary</label>
+                                    <input class="form-control" type="number" min="0" id="e_salaryb" name="salaryb" placeholder="Enter salary">
+                                    </div>
+                                </div>
+                              
+                            </div>
                             <div class="submit-section">
                                 <button type="submit" class="btn btn-primary submit-btn">Update</button>
                             </div>
@@ -388,7 +426,8 @@
             $('#e_email').val(_this.find('.email').text());
             $('#e_phone_number').val(_this.find('.phone_number').text());
             $('#e_image').val(_this.find('.image').text());
-
+            $('#e_salaryb').val(_this.find('.salaryb').text());
+           
             var name_role = (_this.find(".role_name").text());
             var _option = '<option selected value="' + name_role+ '">' + _this.find('.role_name').text() + '</option>'
             $( _option).appendTo("#e_role_name");

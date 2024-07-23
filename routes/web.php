@@ -22,6 +22,7 @@ use App\Http\Controllers\TrainersController;
 use App\Http\Controllers\TrainingTypeController;
 use App\Http\Controllers\SalesController;
 use App\Http\Controllers\PersonalInformationController;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 
 /*
@@ -65,8 +66,11 @@ Auth::routes();
 Route::controller(HomeController::class)->group(function () {
     Route::get('/home', 'index')->name('home');
     Route::get('em/dashboard', 'emDashboard')->name('em/dashboard');
-});
+    Route::get('/dashboard','index1')->name('dashboard');
 
+
+});
+   
 // -----------------------------settings----------------------------------------//
 Route::controller(SettingController::class)->group(function () {
     Route::get('company/settings/page', 'companySettings')->middleware('auth')->name('company/settings/page');
@@ -98,14 +102,16 @@ Route::controller(RegisterController::class)->group(function () {
 // ----------------------------- forget password ----------------------------//
 Route::controller(ForgotPasswordController::class)->group(function () {
     Route::get('forget-password', 'getEmail')->name('forget-password');
-    Route::post('forget-password', 'postEmail')->name('forget-password');    
+    Route::post('forget-password', 'postEmail')->name('forget-password'); 
+    Route::get('reset-password/{token}', 'getPassword');
+    Route::post('reset-password', 'updatePassword');     
 });
 
 // ----------------------------- reset password -----------------------------//
-Route::controller(ResetPasswordController::class)->group(function () {
-    Route::get('reset-password/{token}', 'getPassword');
-    Route::post('reset-password', 'updatePassword');    
-});
+//    Route::controller(\App\Http\Controllers\ResetPasswordController::class)->group(function () {
+   // Route::get('reset-password/{token}', 'getPassword');
+    //Route::post('reset-password', 'updatePassword');    
+//});
 
 // ----------------------------- user profile ------------------------------//
 Route::controller(UserManagementController::class)->group(function () {
@@ -121,7 +127,9 @@ Route::controller(UserManagementController::class)->group(function () {
     Route::post('update', 'update')->name('update');
     Route::post('user/delete', 'delete')->middleware('auth')->name('user/delete');
     Route::get('activity/log', 'activityLog')->middleware('auth')->name('activity/log');
-    Route::get('activity/login/logout', 'activityLogInLogOut')->middleware('auth')->name('activity/login/logout');    
+    Route::get('activity/login/logout', 'activityLogInLogOut')->middleware('auth')->name('activity/login/logout');
+   
+   
 });
 
 // ----------------------------- search user management ------------------------------//
@@ -228,11 +236,11 @@ Route::controller(LeavesController::class)->group(function () {
 // ----------------------------- form attendance  ------------------------------//
 Route::controller(LeavesController::class)->group(function () {
     Route::get('form/leavesettings/page', 'leaveSettings')->middleware('auth')->name('form/leavesettings/page');
-    Route::get('attendance/page', 'attendanceIndex')->middleware('auth')->name('attendance/page');
-    Route::get('attendance/employee/page', 'AttendanceEmployee')->middleware('auth')->name('attendance/employee/page');
-    Route::get('form/shiftscheduling/page', 'shiftScheduLing')->middleware('auth')->name('form/shiftscheduling/page');
-    Route::get('form/shiftlist/page', 'shiftList')->middleware('auth')->name('form/shiftlist/page');    
+   
+   // Route::get('form/shiftlist/page', 'shiftList')->middleware('auth')->name('form/shiftlist/page');    
 });
+
+
 
 // ----------------------------- form payroll  ------------------------------//
 Route::controller(PayrollController::class)->group(function () {
@@ -240,9 +248,36 @@ Route::controller(PayrollController::class)->group(function () {
     Route::post('form/salary/save','saveRecord')->middleware('auth')->name('form/salary/save');
     Route::post('form/salary/update', 'updateRecord')->middleware('auth')->name('form/salary/update');
     Route::post('form/salary/delete', 'deleteRecord')->middleware('auth')->name('form/salary/delete');
+
+    
+   // Route::get('form/salary/view', 'salaryView')->middleware('auth')->name('form/salary/view');
+    Route::get('form/payroll/items', 'payrollItems')->middleware('auth')->name('form/payroll/items');
     Route::get('form/salary/view/{user_id}', 'salaryView')->middleware('auth');
-    Route::get('form/payroll/items', 'payrollItems')->middleware('auth')->name('form/payroll/items');    
+    Route::get('form/payroll/salaryview', 'salaryView')->middleware('auth')->name('form/payroll/salaryview'); 
+    Route::get('form/attendanceemployee/page', 'attendance')->middleware('auth')->name('form/attendanceemployee/page');
+    Route::post('form/attendanceemployee/save','saveRecor')->middleware('auth')->name('form/attendanceemployee/save');
+    Route::post('form/attendanceemployee/update', 'updateRecor')->middleware('auth')->name('form/attendanceemployee/update');
+    Route::post('form/attendanceemployee/delete', 'deleteRecor')->middleware('auth')->name('form/attendanceemployee/delete');   
+    
+    Route::get('form/shiftscheduling/page', 'projects')->middleware('auth')->name('form/shiftscheduling/page');
+    Route::post('form/projects/save','saveReco')->middleware('auth')->name('form/projects/save');
+    Route::post('form/projects/update','updateReco')->middleware('auth')->name('form/projects/update');
+    Route::post('form/projects/delete','deleteReco')->middleware('auth')->name('form/projects/dalete');
+    Route::get('form/shiftlist/page', 'shiftList')->middleware('auth')->name('form/shiftlist/page');    
+
+    Route::get('form/project/page', 'index')->middleware('auth')->name('form/project/page');    
+    Route::post('form/project/save', 'saveRecordProject')->middleware('auth')->name('form/project/save');    
+    Route::post('form/project/update', 'updateRecordProject')->middleware('auth')->name('form/project/update');    
+    Route::post('form/project/delete', 'deleteRecordProject')->middleware('auth')->name('form/project/delete');  
+    
+
 });
+
+
+//=----------------------project-------------------//
+  
+Route::get('/generate-payroll/{employee_id}', [PayrollController::class, 'generatePayroll'])->name('generate-payroll');
+Route::get('/generate-payroll/{employee_id}', [PayrollController::class, 'createPDF'])->name('generate-payroll');
 
 // ----------------------------- reports  ------------------------------//
 Route::controller(ExpenseReportsController::class)->group(function () {
@@ -313,6 +348,18 @@ Route::controller(SalesController::class)->group(function () {
     Route::post('expenses/search', 'searchRecord')->middleware('auth')->name('expenses/search');
     
 });
+
+
+
+Route::prefix('configurations')->group(function () {
+
+    Route::get('/', [ConfigurationController::class, 'index'])->name('configurations');
+    Route::get('/create', [ConfigurationController::class, 'create'])->name('configurations.create');
+
+
+    Route::post('/store', [ConfigurationController::class, 'store'])->name('configurations.store');
+
+    Route::get('/delete/{configuration}', [ConfigurationController::class, 'delete'])->name('configurations.delete');});
 
 // ----------------------------- training type  ------------------------------//
 Route::controller(PersonalInformationController::class)->group(function () {

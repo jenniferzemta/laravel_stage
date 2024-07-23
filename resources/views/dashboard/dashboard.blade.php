@@ -1,9 +1,8 @@
 @extends('layouts.master')
 @section('content')
-    <div class="page-wrapper">
-        <!-- Page Content -->
+  <div class="page-wrapper">
         <div class="content container-fluid">
-            <!-- Page Header -->
+        
             <div class="page-header">
                 <div class="row">
                     <div class="col-sm-12">
@@ -14,46 +13,86 @@
                     </div>
                 </div>
             </div>
-            <!-- /Page Header -->
-            <div class="row">
-                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                    <div class="card dash-widget">
-                        <div class="card-body"> <span class="dash-widget-icon"><i class="fa fa-cubes"></i></span>
+        
+
+        <div class="row">
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                    <div class="card dash-widget" style="background-color: green;">
+                        <div class="card-body"> <span class="dash-widget-icon" ><i class="fa fa-users"></i></span>
                             <div class="dash-widget-info">
-                                <h3>112</h3> <span>Projects</span>
+                              
+                                <span style=" color: white ; font-size:20px">Admins</span>
+                                <h3 style=" color: white ">{{ $admin }}</h3>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                    <div class="card dash-widget">
-                        <div class="card-body"> <span class="dash-widget-icon"><i class="fa fa-usd"></i></span>
+                    <div class="card dash-widget" style="background-color: #50C878;">
+                        <div class="card-body"> <span class="dash-widget-icon" ><i class="fa fa-users"></i></span>
                             <div class="dash-widget-info">
-                                <h3>44</h3> <span>Clients</span>
+                        
+                                <span style=" color: white; font-size:20px">Staffs</span>
+                                <h3 style="color:white">{{ $staffCount }}</h3>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                    <div class="card dash-widget">
-                        <div class="card-body"> <span class="dash-widget-icon"><i class="fa fa-diamond"></i></span>
+                    <div class="card dash-widget" style="background-color: #FFA500;">
+                        <div class="card-body"> <span class="dash-widget-icon"><i class="fa fa-table"></i></span>
                             <div class="dash-widget-info">
-                                <h3>37</h3> <span>Tasks</span>
+                                <span style=" color: white ; font-size:20px">Departments</span>
+                                <h3 style=" color: white">{{ $departement }}</h3>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                    <div class="card dash-widget">
+                    <div class="card dash-widget" style="background-color: ">
                         <div class="card-body"> <span class="dash-widget-icon"><i class="fa fa-user"></i></span>
                             <div class="dash-widget-info">
-                                <h3>218</h3> <span>Employees</span>
+                                <h3></h3> 
+                                <span style=" font-size:20px">Attendance</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                    <div class="card dash-widget" style="background-color: pink ;">
+                        <div class="card-body"> <span class="dash-widget-icon"><i class="fa fa-tasks"></i></span>
+                            <div class="dash-widget-info">
+                                 <span style="background-color: pink ; font-size:20px">Projects</span>
+                                <h3 style="color: white;">{{ $project }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                    <div class="card dash-widget" style="background-color:#98D8D8 ;">
+                        <div class="card-body"> <span class="dash-widget-icon"><i class="fa fa-diamond"></i></span>
+                            <div class="dash-widget-info">
+                                <span style="color:white ; font-size:20px">Leaves</span>
+                                <h3 style="color:white">{{ $leave }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                    <div class="card dash-widget" style="background-color: #FF7F50;">
+                        <div class="card-body"> <span class="dash-widget-icon"><i class="fa fa-money"></i></span>
+                            <div class="dash-widget-info" style="">
+                        
+                                <span style="color:white ; font-size:20px">Salary</span>
+                                <h3 style="color:white;">{{ $salary }}</h3>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
+          <!--  <div class="row">
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col-md-6 text-center">
@@ -135,7 +174,10 @@
             </div>
             {{-- message --}}
             {!! Toastr::message() !!}
-            <!-- Statistics Widget -->
+    
+
+
+
             <div class="row">
                 <div class="col-md-12 col-lg-12 col-xl-4 d-flex">
                     <div class="card flex-fill dash-statistics">
@@ -248,7 +290,7 @@
                     </div>
                 </div>
             </div>
-            <!-- /Statistics Widget -->
+            
             <div class="row">
                 <div class="col-md-6 d-flex">
                     <div class="card card-table flex-fill">
@@ -734,6 +776,7 @@
                 </div>
             </div>
         </div>
-        <!-- /Page Content -->
+--> 
     </div>
 @endsection
+
